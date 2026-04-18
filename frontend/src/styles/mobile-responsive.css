@@ -1,0 +1,513 @@
+/* Mobile-First CSS Improvements for Peluqueria SaaS */
+
+/* ============================================
+   RESPONSIVE TYPOGRAPHY 
+   ============================================ */
+
+@media (max-width: 640px) {
+  h1 {
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+  button {
+    font-size: 1rem;
+    min-height: 44px;
+    padding: 0.75rem 1rem;
+  }
+
+  input,
+  select,
+  textarea {
+    font-size: 1rem;
+    min-height: 44px;
+    padding: 0.75rem;
+  }
+}
+
+/* ============================================
+   RESPONSIVE LAYOUT
+   ============================================ */
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 2rem;
+    max-width: 1200px;
+  }
+}
+
+/* Grid responsive */
+.grid-responsive {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .grid-responsive {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-responsive {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* ============================================
+   TOUCH-FRIENDLY ELEMENTS
+   ============================================ */
+
+/* Botones dengan touch targets >= 44px */
+button, 
+.btn, 
+input[type="button"], 
+input[type="submit"] {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:active,
+.btn:active {
+  transform: scale(0.98);
+}
+
+/* Enlaces/links */
+a {
+  -webkit-tap-highlight-color: transparent;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+a:focus-visible {
+  outline: 2px solid #667eea;
+}
+
+/* ============================================
+   MOBILE NAVIGATION
+   ============================================ */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.navbar-mobile {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .navbar {
+    flex-wrap: wrap;
+    padding: 0.75rem;
+  }
+
+  .navbar-mobile {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  .navbar-desktop {
+    display: none;
+  }
+}
+
+/* ============================================
+   MOBILE FORMS
+   ============================================ */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+label {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+input,
+select,
+textarea {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  font-family: inherit;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Select personalizado en mobile */
+select {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1.25rem;
+  padding-right: 2.5rem;
+}
+
+/* ============================================
+   MOBILE CARDS
+   ============================================ */
+
+.card {
+  background: white;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 640px) {
+  .card {
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    border-radius: 0.5rem;
+  }
+}
+
+/* ============================================
+   MOBILE MODALS
+   ============================================ */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-end;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  width: 100%;
+  border-radius: 1rem 1rem 0 0;
+  padding: 1.5rem;
+  max-height: 80vh;
+  overflow-y: auto;
+  animation: slideUp 0.3s ease;
+}
+
+@media (min-width: 640px) {
+  .modal {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-content {
+    width: 90%;
+    max-width: 500px;
+    border-radius: 1rem;
+    max-height: 70vh;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ============================================
+   MOBILE TABLES
+   ============================================ */
+
+@media (max-width: 640px) {
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tbody,
+  tr,
+  td {
+    display: block;
+    width: 100%;
+  }
+
+  tr {
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+  }
+
+  td {
+    text-align: right;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  td:last-child {
+    border-bottom: none;
+  }
+
+  td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: 600;
+    text-align: left;
+    color: #666;
+  }
+}
+
+/* ============================================
+   NOTIFICATION & ICONS
+   ============================================ */
+
+.notification-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  min-height: 24px;
+  padding: 0.25rem;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  font-weight: bold;
+  background: #ef4444;
+  color: white;
+}
+
+.icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.icon-button:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.icon-button:active {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   MOBILE SPACING
+   ============================================ */
+
+.spacing-mobile {
+  margin: 1rem 0;
+}
+
+@media (min-width: 640px) {
+  .spacing-mobile {
+    margin: 1.5rem 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .spacing-mobile {
+    margin: 2rem 0;
+  }
+}
+
+/* ============================================
+   MOBILE FLEX WRAPPING
+   ============================================ */
+
+.flex-wrap-mobile {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .flex-wrap-mobile {
+    flex-wrap: nowrap;
+    gap: 1rem;
+  }
+}
+
+/* ============================================
+   RESPONSIVE IMAGES
+   ============================================ */
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.image-responsive {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* ============================================
+   MOBILE SAFE AREA
+   ============================================ */
+
+@supports (padding: max(0px)) {
+  body {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+
+  .navbar {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+}
+
+/* ============================================
+   DARK MODE SUPPORT
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #1a1a1a;
+    color: #e0e0e0;
+  }
+
+  .card {
+    background: #2d2d2d;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+
+  input,
+  select,
+  textarea {
+    background: #3d3d3d;
+    border-color: #4d4d4d;
+    color: #e0e0e0;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    border-color: #667eea;
+  }
+}
+
+/* ============================================
+   ORIENTATION-SPECIFIC STYLES
+   ============================================ */
+
+@media (max-height: 600px) and (orientation: landscape) {
+  .navbar {
+    min-height: auto;
+    padding: 0.5rem;
+  }
+
+  .card {
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  button {
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus visible para keyboard navigation */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* High contrast mode */
+@media (prefers-contrast: more) {
+  button {
+    border: 2px solid currentColor;
+  }
+
+  input,
+  select,
+  textarea {
+    border: 2px solid currentColor;
+  }
+}
